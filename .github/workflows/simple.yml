@@ -3,9 +3,15 @@ name: Simple Concept Workflow
 on:
     workflow_dispatch:
 
+env:
+    APP_NAME: "Todo Backend"
+    ENVIRONMENT: "DEVELOPMENT"
 jobs:
     learn:
         runs-on: ubuntu-latest
         steps:
-            - name: Hello world
-              run: echo "Hello World" 
+            - name: step1
+              run: echo "Hello World from $APP_NAME" 
+
+            - name: step2
+              run: echo "Hello world2 from $APP_NAME in $ENVIRONMENT"
