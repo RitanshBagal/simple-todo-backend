@@ -30,6 +30,7 @@ jobs:
       # Build Spring Boot project
       - name: Build application
         run: |
+          chmod +x mvnw
           ./mvnw clean package -DskipTests
 
       # Login to Docker Hub
