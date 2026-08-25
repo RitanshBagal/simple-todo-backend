@@ -17,3 +17,5 @@ jobs:
               run: echo "Hello world2 from $APP_NAME in $ENVIRONMENT"
             - name: step3
               run: echo "Name of the dockehub user name ${{ vars.DOCKERHUB_USERNAME}}"
+            - name: step4
+              run: echo "Repository name is ${{github.repository}}"
