@@ -4,6 +4,7 @@ import com.example.todo.dto.CreateTodoRequest;
 import com.example.todo.dto.UpdateTodoRequest;
 import com.example.todo.exception.TodoNotFoundException;
 import com.example.todo.model.Todo;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -18,6 +19,15 @@ public class TodoService {
     // In-memory list to manage todos without a database
     private final List<Todo> todoList = new CopyOnWriteArrayList<>();
     private final AtomicLong idCounter = new AtomicLong(1);
+
+    @PostConstruct
+    public void initDummyData() {
+        createTodo(new CreateTodoRequest("Set up CI/CD pipeline", "Configure GitHub Actions workflow for backend build and test", true));
+        createTodo(new CreateTodoRequest("Design Todo REST API", "Create CRUD endpoints for managing tasks", true));
+        createTodo(new CreateTodoRequest("Integrate Frontend with Backend", "Connect UI to the Spring Boot REST API", false));
+        createTodo(new CreateTodoRequest("Write Unit and Integration Tests", "Add test cases covering edge cases and error handling", true));
+        createTodo(new CreateTodoRequest("Deploy Application to Cloud", "Deploy the backend service to cloud hosting", false));
+    }
 
     public List<Todo> getAllTodos(Boolean completed, String search) {
         return todoList.stream()
