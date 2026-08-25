@@ -15,3 +15,5 @@ jobs:
 
             - name: step2
               run: echo "Hello world2 from $APP_NAME in $ENVIRONMENT"
+            - name: step3
+              run: echo "Name of the dockehub user name ${{ vars.DOCKER_HUB_USERNAME}}"
