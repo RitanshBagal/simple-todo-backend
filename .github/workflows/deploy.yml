@@ -8,7 +8,7 @@ on:
 
 env:
   APP_NAME: todo-backend
-  IMAGE_TAG: latest
+  IMAGE_TAG: ${{github.sha}}
   CONTAINER_NAME: todo-backend-app
 
 jobs:
