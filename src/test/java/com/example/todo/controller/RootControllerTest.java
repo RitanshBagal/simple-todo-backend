@@ -19,8 +19,8 @@ class RootControllerTest {
     }
 
     @Test
-    void getRootStatus_shouldReturnOkAndEndpoints() throws Exception {
-        mockMvc.perform(get("/"))
+    void getApiStatus_shouldReturnOkAndEndpoints() throws Exception {
+        mockMvc.perform(get("/api"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value("OK"))
                 .andExpect(jsonPath("$.service").value("Todo Backend API"))
@@ -28,8 +28,8 @@ class RootControllerTest {
     }
 
     @Test
-    void getApiStatus_shouldReturnOkAndEndpoints() throws Exception {
-        mockMvc.perform(get("/api"))
+    void getApiStatusEndpoint_shouldReturnOkAndEndpoints() throws Exception {
+        mockMvc.perform(get("/api/status"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.status").value("OK"))
                 .andExpect(jsonPath("$.service").value("Todo Backend API"));
